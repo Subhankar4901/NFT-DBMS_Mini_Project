@@ -4,6 +4,7 @@ from APP.utils import query_db, get_db, SCHEMA, login_required
 from APP.routes.item import search_item_query
 import os
 import datetime
+from decouple import config
 
 # from flask_cors import CORS
 
@@ -11,7 +12,7 @@ import datetime
 app = Flask(__name__)
 
 # For Session
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+app.config['SECRET_KEY'] = config('SECRET_KEY')
 app.config['SESSION_TYPE'] = 'memcached'
 # app.config['SECRET_KEY'] = 'super secret key'
 # Maybe required in future
